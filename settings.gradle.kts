@@ -23,3 +23,4 @@ rootProject.name = "Hublss"
 include(":app")
 include(":data")
 include(":domain")
+include(":koin")
