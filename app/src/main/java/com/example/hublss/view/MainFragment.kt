@@ -6,22 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.example.data.datasource.local.EmailDataImpl
-import com.example.data.repository.MainRepositoryImpl
-import com.example.domain.datastore.DataStoreManager
-import com.example.domain.usecase.LoginUseCase
-import com.example.domain.usecase.LogoutUseCase
 import com.example.hublss.databinding.FragmentMainBinding
-import com.example.hublss.factory.ViewModelFactory
 import com.example.hublss.viewmodel.MainViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,16 +28,6 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val dataStoreManager = DataStoreManager
-
-        val factory = ViewModelFactory(
-            requireActivity().application,
-            LoginUseCase(dataStoreManager),
-            LogoutUseCase(dataStoreManager),
-            MainRepositoryImpl()
-        )
-        viewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
 
         binding.tvAircraft.setOnClickListener {
             val emailData = EmailDataImpl(

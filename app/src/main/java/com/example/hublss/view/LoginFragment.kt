@@ -6,25 +6,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
-import com.example.data.repository.MainRepositoryImpl
 import com.example.domain.datastore.DataStoreManager
-import com.example.domain.usecase.LoginUseCase
-import com.example.domain.usecase.LogoutUseCase
 import com.example.hublss.R
 import com.example.hublss.databinding.FragmentLoginBinding
-import com.example.hublss.factory.ViewModelFactory
 import com.example.hublss.viewmodel.LoginViewModel
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
-    private lateinit var loginViewModel: LoginViewModel
+    private val loginViewModel: LoginViewModel by viewModel()
+    private val dataStoreManager: DataStoreManager by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,16 +35,6 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val dataStoreManager = DataStoreManager
-
-        val factory = ViewModelFactory(
-            requireActivity().application,
-            LoginUseCase(dataStoreManager),
-            LogoutUseCase(dataStoreManager),
-            MainRepositoryImpl()
-        )
-        loginViewModel = ViewModelProvider(this, factory)[LoginViewModel::class.java]
 
         lifecycleScope.launch {
             dataStoreManager.getLoginStatus(requireContext()).collect { isLoggedIn ->

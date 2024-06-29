@@ -40,7 +40,6 @@ android {
 }
 
 dependencies {
-
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(":koin"))
@@ -53,6 +52,8 @@ dependencies {
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.work.runtime.ktx)
+    implementation("io.insert-koin:koin-android:3.5.6")
+    implementation(platform("io.insert-koin:koin-bom:3.5.6"))
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

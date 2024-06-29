@@ -11,28 +11,25 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.data.repository.MainRepositoryImpl
-import com.example.domain.datastore.DataStoreManager
-import com.example.domain.usecase.LoginUseCase
-import com.example.domain.usecase.LogoutUseCase
 import com.example.hublss.R
-import com.example.hublss.factory.ViewModelFactory
+import com.example.domain.datastore.DataStoreManager
 import com.example.hublss.viewmodel.LoginViewModel
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navHostFragment: NavHostFragment
     private lateinit var navController: NavController
-    private lateinit var loginViewModel: LoginViewModel
-    private lateinit var toolbar: Toolbar
+    private val dataStoreManager: DataStoreManager by inject() // Inject DataStoreManager
+    private val loginViewModel: LoginViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        toolbar = findViewById(R.id.toolbar)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container) as NavHostFragment
@@ -53,17 +50,6 @@ class MainActivity : AppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration(setOf(R.id.mainFragment))
         setupActionBarWithNavController(navController, appBarConfiguration)
-
-        val dataStoreManager = DataStoreManager
-
-        val factory = ViewModelFactory(
-            application,
-            LoginUseCase(dataStoreManager),
-            LogoutUseCase(dataStoreManager),
-            MainRepositoryImpl()
-        )
-
-        loginViewModel = ViewModelProvider(this, factory)[LoginViewModel::class.java]
 
         lifecycleScope.launch {
             dataStoreManager.getLoginStatus(this@MainActivity).collect { isLoggedIn ->
