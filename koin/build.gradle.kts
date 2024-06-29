@@ -40,6 +40,10 @@ dependencies {
     implementation(libs.material)
     implementation("io.insert-koin:koin-android:3.5.6")
     implementation(libs.androidx.activity)
+    testImplementation("org.mockito.kotlin:mockito-kotlin:5.3.1")
+    testImplementation("org.mockito:mockito-core:5.7.0")
+    testImplementation("org.mockito:mockito-inline:5.2.0")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }

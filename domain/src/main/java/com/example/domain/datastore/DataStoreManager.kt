@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 object DataStoreManager {
-    private const val DATASTORE_NAME = "user_preferences"
+    const val DATASTORE_NAME = "user_preferences"
     private val Context.dataStore by preferencesDataStore(name = DATASTORE_NAME)
 
     private val LOGIN_STATUS_KEY = booleanPreferencesKey("login_status")
