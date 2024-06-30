@@ -24,7 +24,7 @@ android {
             dimension = "region"
             applicationIdSuffix = ".asia"
         }
-        create("paid") {
+        create("au") {
             dimension = "australia"
             applicationIdSuffix = ".australia"
         }
