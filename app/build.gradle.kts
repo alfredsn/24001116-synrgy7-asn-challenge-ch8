@@ -1,5 +1,3 @@
-import com.android.build.api.variant.BuildConfigField
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -17,6 +15,18 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions("version")
+
+    productFlavors {
+        create("free") {
+            dimension = "version"
+            applicationIdSuffix = ".free"
+        }
+        create("paid") {
+            dimension = "version"
+        }
     }
 
     buildTypes {
@@ -39,15 +49,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-        }
-    }
-
-    productFlavors {
-        create("free") {
-            applicationIdSuffix = ".free"
-        }
-        create("paid") {
-            applicationIdSuffix = ".paid"
         }
     }
 
