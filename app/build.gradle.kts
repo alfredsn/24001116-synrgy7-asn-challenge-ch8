@@ -94,6 +94,8 @@ dependencies {
     implementation("io.insert-koin:koin-android:3.5.6")
     implementation(platform("io.insert-koin:koin-bom:3.5.6"))
     implementation(libs.core.ktx)
+    debugImplementation("com.github.chuckerteam.chucker:library:4.0.0")
+    releaseImplementation("com.github.chuckerteam.chucker:library-no-op:4.0.0")
     testImplementation(libs.junit)
     testImplementation("org.mockito.kotlin:mockito-kotlin:5.3.1")
     testImplementation("org.mockito:mockito-core:5.7.0")
