@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 8.3.2">
+
+    <issue
+        id="ScopedStorage"
+        severity="Warning"
+        message="READ_EXTERNAL_STORAGE is deprecated (and is not granted) when targeting Android 13+. If you need to query or interact with MediaStore or media files on the shared storage, you should instead use one or more new storage permissions: `READ_MEDIA_IMAGES`, `READ_MEDIA_VIDEO` or `READ_MEDIA_AUDIO`."
+        category="Correctness"
+        priority="8"
+        summary="Affected by scoped storage"
+        explanation="Scoped storage is enforced on Android 10+ (or Android 11+ if using `requestLegacyExternalStorage`). In particular, `WRITE_EXTERNAL_STORAGE` will no longer provide write access to all files; it will provide the equivalent of `READ_EXTERNAL_STORAGE` instead.&#xA;&#xA;As of Android 13, if you need to query or interact with MediaStore or media files on the shared storage, you should be using instead one or more new storage permissions:&#xA;* `android.permission.READ_MEDIA_IMAGES`&#xA;* `android.permission.READ_MEDIA_VIDEO`&#xA;* `android.permission.READ_MEDIA_AUDIO`&#xA;&#xA;and then add `maxSdkVersion=&quot;33&quot;` to the older permission. See the developer guide for how to do this: https://developer.android.com/about/versions/13/behavior-changes-13#granular-media-permissions&#xA;&#xA;The `MANAGE_EXTERNAL_STORAGE` permission can be used to manage all files, but it is rarely necessary and most apps on Google Play are not allowed to use it. Most apps should instead migrate to use scoped storage. To modify or delete files, apps should request write access from the user as described at https://goo.gle/android-mediastore-createwriterequest.&#xA;&#xA;To learn more, read these resources: Play policy: https://goo.gle/policy-storage-help Allowable use cases: https://goo.gle/policy-storage-usecases"
+        url="https://goo.gle/android-storage-usecases"
+        urls="https://goo.gle/android-storage-usecases"
+        errorLine1="    &lt;uses-permission android:name=&quot;android.permission.READ_EXTERNAL_STORAGE&quot;/>"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\AndroidManifest.xml"
+            line="7"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="ScopedStorage"
+        severity="Warning"
+        message="WRITE_EXTERNAL_STORAGE is deprecated (and is not granted) when targeting Android 13+. If you need to write to shared storage, use the `MediaStore.createWriteRequest` intent."
+        category="Correctness"
+        priority="8"
+        summary="Affected by scoped storage"
+        explanation="Scoped storage is enforced on Android 10+ (or Android 11+ if using `requestLegacyExternalStorage`). In particular, `WRITE_EXTERNAL_STORAGE` will no longer provide write access to all files; it will provide the equivalent of `READ_EXTERNAL_STORAGE` instead.&#xA;&#xA;As of Android 13, if you need to query or interact with MediaStore or media files on the shared storage, you should be using instead one or more new storage permissions:&#xA;* `android.permission.READ_MEDIA_IMAGES`&#xA;* `android.permission.READ_MEDIA_VIDEO`&#xA;* `android.permission.READ_MEDIA_AUDIO`&#xA;&#xA;and then add `maxSdkVersion=&quot;33&quot;` to the older permission. See the developer guide for how to do this: https://developer.android.com/about/versions/13/behavior-changes-13#granular-media-permissions&#xA;&#xA;The `MANAGE_EXTERNAL_STORAGE` permission can be used to manage all files, but it is rarely necessary and most apps on Google Play are not allowed to use it. Most apps should instead migrate to use scoped storage. To modify or delete files, apps should request write access from the user as described at https://goo.gle/android-mediastore-createwriterequest.&#xA;&#xA;To learn more, read these resources: Play policy: https://goo.gle/policy-storage-help Allowable use cases: https://goo.gle/policy-storage-usecases"
+        url="https://goo.gle/android-storage-usecases"
+        urls="https://goo.gle/android-storage-usecases"
+        errorLine1="    &lt;uses-permission android:name=&quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;/>"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\AndroidManifest.xml"
+            line="8"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="SelectedPhotoAccess"
+        severity="Warning"
+        message="Your app is currently not handling Selected Photos Access introduced in Android 14+"
+        category="Correctness"
+        priority="5"
+        summary="Behavior change when requesting photo library access"
+        explanation="Selected Photo Access is a new ability for users to share partial access to their photo library when apps request access to their device storage on Android 14+.&#xA;&#xA;Instead of letting the system manage the selection lifecycle, we recommend you adapt your app to handle partial access to the photo library."
+        url="https://developer.android.com/about/versions/14/changes/partial-photo-video-access"
+        urls="https://developer.android.com/about/versions/14/changes/partial-photo-video-access"
+        errorLine1="    &lt;uses-permission android:name=&quot;android.permission.READ_MEDIA_IMAGES&quot; />"
+        errorLine2="                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\AndroidManifest.xml"
+            line="9"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        severity="Warning"
+        message="A newer version of com.android.application than 8.3.2 is available: 8.5.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Android Gradle Plugin Version"
+        explanation="This detector looks for usage of the Android Gradle Plugin where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="agp = &quot;8.3.2&quot;"
+        errorLine2="      ~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\gradle\libs.versions.toml"
+            line="2"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        severity="Warning"
+        message="A newer version of com.android.application than 8.3.2 is available: 8.5.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Android Gradle Plugin Version"
+        explanation="This detector looks for usage of the Android Gradle Plugin where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="agp = &quot;8.3.2&quot;"
+        errorLine2="      ~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\gradle\libs.versions.toml"
+            line="2"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        severity="Warning"
+        message="A newer version of com.android.application than 8.3.2 is available: 8.5.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Android Gradle Plugin Version"
+        explanation="This detector looks for usage of the Android Gradle Plugin where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="agp = &quot;8.3.2&quot;"
+        errorLine2="      ~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\gradle\libs.versions.toml"
+            line="2"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        severity="Warning"
+        message="A newer version of com.android.library than 8.3.2 is available: 8.5.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Android Gradle Plugin Version"
+        explanation="This detector looks for usage of the Android Gradle Plugin where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="agp = &quot;8.3.2&quot;"
+        errorLine2="      ~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\gradle\libs.versions.toml"
+            line="2"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        severity="Warning"
+        message="A newer version of com.android.library than 8.3.2 is available: 8.5.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Android Gradle Plugin Version"
+        explanation="This detector looks for usage of the Android Gradle Plugin where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="agp = &quot;8.3.2&quot;"
+        errorLine2="      ~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\gradle\libs.versions.toml"
+            line="2"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        severity="Warning"
+        message="A newer version of com.android.library than 8.3.2 is available: 8.5.0"
+        category="Correctness"
+        priority="4"
+        summary="Obsolete Android Gradle Plugin Version"
+        explanation="This detector looks for usage of the Android Gradle Plugin where the version you are using is not the current stable release. Using older versions is fine, and there are cases where you deliberately want to stick with an older version. However, you may simply not be aware that a more recent version is available, and that is what this lint check helps find."
+        errorLine1="agp = &quot;8.3.2&quot;"
+        errorLine2="      ~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\gradle\libs.versions.toml"
+            line="2"
+            column="7"/>
+    </issue>
+
+    <issue
+        id="DataBindingWithoutKapt"
+        severity="Warning"
+        message="If you plan to use data binding in a Kotlin project, you should apply the kotlin-kapt plugin."
+        category="Correctness"
+        priority="1"
+        summary="Data Binding without Annotation Processing"
+        explanation="Apps that use Kotlin and data binding should also apply the kotlin-kapt plugin."
+        url="https://kotlinlang.org/docs/reference/kapt.html"
+        urls="https://kotlinlang.org/docs/reference/kapt.html"
+        errorLine1="        dataBinding = true"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\build.gradle.kts"
+            line="76"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Typos"
+        severity="Warning"
+        message="&quot;Recepient&quot; is a common misspelling; did you mean &quot;Recipient&quot;?"
+        category="Correctness:Messages"
+        priority="7"
+        summary="Spelling error"
+        explanation="This check looks through the string definitions, and if it finds any words that look like likely misspellings, they are flagged."
+        errorLine1="    &lt;string name=&quot;recepient&quot;>Recepient&lt;/string>"
+        errorLine2="                             ^">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\values\strings.xml"
+            line="58"
+            column="30"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="This folder configuration (`v23`) is unnecessary; `minSdkVersion` is 29. Merge all the resources in this folder into `values`."
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder.">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\values-v23"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.color.white` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.&#xA;,"
+        errorLine1="    &lt;color name=&quot;white&quot;>#FFFFFFFF&lt;/color>"
+        errorLine2="           ~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\values\colors.xml"
+            line="4"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.dimen.fab_margin` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.&#xA;,"
+        errorLine1="    &lt;dimen name=&quot;fab_margin&quot;>16dp&lt;/dimen>"
+        errorLine2="           ~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\values\dimens.xml"
+            line="2"
+            column="12"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.mipmap.ic_launcher` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.&#xA;,"
+        errorLine1="&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\mipmap-anydpi\ic_launcher.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.drawable.ic_launcher_foreground` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.&#xA;,"
+        errorLine1="&lt;vector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;"
+        errorLine2="^">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\drawable\ic_launcher_foreground.xml"
+            line="1"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.mipmap.ic_launcher_round` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.&#xA;,"
+        errorLine1="&lt;adaptive-icon xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;>"
+        errorLine2="^">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\mipmap-anydpi\ic_launcher_round.xml"
+            line="2"
+            column="1"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.hello_blank_fragment` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.&#xA;,"
+        errorLine1="    &lt;string name=&quot;hello_blank_fragment&quot;>Hello blank fragment&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\values\strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.clear_button_description` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.&#xA;,"
+        errorLine1="    &lt;string name=&quot;clear_button_description&quot;>Clear button for clearing input fields or deleting a contact&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\values\strings.xml"
+            line="9"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.save_button_description` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.&#xA;,"
+        errorLine1="    &lt;string name=&quot;save_button_description&quot;>Save button for saving contact information&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\values\strings.xml"
+            line="10"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.first_fragment_label` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.&#xA;,"
+        errorLine1="    &lt;string name=&quot;first_fragment_label&quot;>First Fragment&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\values\strings.xml"
+            line="14"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.second_fragment_label` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.&#xA;,"
+        errorLine1="    &lt;string name=&quot;second_fragment_label&quot;>Second Fragment&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\values\strings.xml"
+            line="15"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.next` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.&#xA;,"
+        errorLine1="    &lt;string name=&quot;next&quot;>Next&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\values\strings.xml"
+            line="16"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.previous` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.&#xA;,"
+        errorLine1="    &lt;string name=&quot;previous&quot;>Previous&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\values\strings.xml"
+            line="17"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UnusedResources"
+        severity="Warning"
+        message="The resource `R.string.lorem_ipsum` appears to be unused"
+        category="Performance"
+        priority="3"
+        summary="Unused resources"
+        explanation="Unused resources make applications larger and slow down builds.&#xA;&#xA;&#xA;The unused resource check can ignore tests. If you want to include resources that are only referenced from tests, consider packaging them in a test source set instead.&#xA;&#xA;You can include test sources in the unused resource check by setting the system property lint.unused-resources.include-tests =true, and to exclude them (usually for performance reasons), use lint.unused-resources.exclude-tests =true.&#xA;,"
+        errorLine1="    &lt;string name=&quot;lorem_ipsum&quot;>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\values\strings.xml"
+            line="19"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="IconLauncherShape"
+        severity="Warning"
+        message="Launcher icon used as round icon did not have a circular shape"
+        category="Usability:Icons"
+        priority="6"
+        summary="The launcher icon shape should use a distinct silhouette"
+        explanation="According to the Android Design Guide (https://d.android.com/r/studio-ui/designer/material/iconography) your launcher icons should &quot;use a distinct silhouette&quot;, a &quot;three-dimensional, front view, with a slight perspective as if viewed from above, so that users perceive some depth.&quot;&#xA;&#xA;The unique silhouette implies that your launcher icon should not be a filled square.">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\drawable\ic_logo.png"/>
+    </issue>
+
+    <issue
+        id="IconLocation"
+        severity="Warning"
+        message="Found bitmap drawable `res/drawable/ic_logo.png` in densityless folder"
+        category="Usability:Icons"
+        priority="5"
+        summary="Image defined in density-independent drawable folder"
+        explanation="The res/drawable folder is intended for density-independent graphics such as shapes defined in XML. For bitmaps, move it to `drawable-mdpi` and consider providing higher and lower resolution versions in `drawable-ldpi`, `drawable-hdpi` and `drawable-xhdpi`. If the icon **really** is density independent (for example a solid color) you can place it in `drawable-nodpi`."
+        url="https://developer.android.com/guide/practices/screens_support.html"
+        urls="https://developer.android.com/guide/practices/screens_support.html">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\drawable\ic_logo.png"/>
+    </issue>
+
+    <issue
+        id="AlwaysShowAction"
+        severity="Warning"
+        message="Prefer &quot;`ifRoom`&quot; instead of &quot;`always`&quot;"
+        category="Usability"
+        priority="3"
+        summary="Usage of `showAsAction=always`"
+        explanation="Using `showAsAction=&quot;always&quot;` in menu XML, or `MenuItem.SHOW_AS_ACTION_ALWAYS` in Java code is usually a deviation from the user interface style guide.Use `ifRoom` or the corresponding `MenuItem.SHOW_AS_ACTION_IF_ROOM` instead.&#xA;&#xA;If `always` is used sparingly there are usually no problems and behavior is roughly equivalent to `ifRoom` but with preference over other `ifRoom` items. Using it more than twice in the same menu is a bad idea.&#xA;&#xA;This check looks for menu XML files that contain more than two `always` actions, or some `always` actions and no `ifRoom` actions. In Java code, it looks for projects that contain references to `MenuItem.SHOW_AS_ACTION_ALWAYS` and no references to `MenuItem.SHOW_AS_ACTION_IF_ROOM`."
+        errorLine1="            app:showAsAction=&quot;always&quot; />"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\menu\menu_main.xml"
+            line="13"
+            column="13"/>
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\src\main\res\menu\menu_main.xml"
+            line="19"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="UseTomlInstead"
+        severity="Warning"
+        message="Use version catalog instead"
+        category="Productivity"
+        priority="4"
+        summary="Use TOML Version Catalog Instead"
+        explanation="If your project is using a `libs.versions.toml` file, you should place all Gradle dependencies in the TOML file. This lint check looks for version declarations outside of the TOML file and suggests moving them (and in the IDE, provides a quickfix to performing the operation automatically)."
+        errorLine1="    implementation(&quot;io.insert-koin:koin-android:3.5.6&quot;)"
+        errorLine2="                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\build.gradle.kts"
+            line="94"
+            column="21"/>
+    </issue>
+
+    <issue
+        id="UseTomlInstead"
+        severity="Warning"
+        message="Use version catalog instead"
+        category="Productivity"
+        priority="4"
+        summary="Use TOML Version Catalog Instead"
+        explanation="If your project is using a `libs.versions.toml` file, you should place all Gradle dependencies in the TOML file. This lint check looks for version declarations outside of the TOML file and suggests moving them (and in the IDE, provides a quickfix to performing the operation automatically)."
+        errorLine1="    implementation(platform(&quot;io.insert-koin:koin-bom:3.5.6&quot;))"
+        errorLine2="                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\build.gradle.kts"
+            line="95"
+            column="20"/>
+    </issue>
+
+    <issue
+        id="UseTomlInstead"
+        severity="Warning"
+        message="Use version catalog instead"
+        category="Productivity"
+        priority="4"
+        summary="Use TOML Version Catalog Instead"
+        explanation="If your project is using a `libs.versions.toml` file, you should place all Gradle dependencies in the TOML file. This lint check looks for version declarations outside of the TOML file and suggests moving them (and in the IDE, provides a quickfix to performing the operation automatically)."
+        errorLine1="    testImplementation(&quot;org.mockito.kotlin:mockito-kotlin:5.3.1&quot;)"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\build.gradle.kts"
+            line="98"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="UseTomlInstead"
+        severity="Warning"
+        message="Use version catalog instead"
+        category="Productivity"
+        priority="4"
+        summary="Use TOML Version Catalog Instead"
+        explanation="If your project is using a `libs.versions.toml` file, you should place all Gradle dependencies in the TOML file. This lint check looks for version declarations outside of the TOML file and suggests moving them (and in the IDE, provides a quickfix to performing the operation automatically)."
+        errorLine1="    testImplementation(&quot;org.mockito:mockito-core:5.7.0&quot;)"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\build.gradle.kts"
+            line="99"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="UseTomlInstead"
+        severity="Warning"
+        message="Use version catalog instead"
+        category="Productivity"
+        priority="4"
+        summary="Use TOML Version Catalog Instead"
+        explanation="If your project is using a `libs.versions.toml` file, you should place all Gradle dependencies in the TOML file. This lint check looks for version declarations outside of the TOML file and suggests moving them (and in the IDE, provides a quickfix to performing the operation automatically)."
+        errorLine1="    testImplementation(&quot;org.mockito:mockito-inline:5.2.0&quot;)"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\build.gradle.kts"
+            line="100"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="UseTomlInstead"
+        severity="Warning"
+        message="Use version catalog instead"
+        category="Productivity"
+        priority="4"
+        summary="Use TOML Version Catalog Instead"
+        explanation="If your project is using a `libs.versions.toml` file, you should place all Gradle dependencies in the TOML file. This lint check looks for version declarations outside of the TOML file and suggests moving them (and in the IDE, provides a quickfix to performing the operation automatically)."
+        errorLine1="    testImplementation(&quot;androidx.arch.core:core-testing:2.2.0&quot;)"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\build.gradle.kts"
+            line="101"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="UseTomlInstead"
+        severity="Warning"
+        message="Use version catalog instead"
+        category="Productivity"
+        priority="4"
+        summary="Use TOML Version Catalog Instead"
+        explanation="If your project is using a `libs.versions.toml` file, you should place all Gradle dependencies in the TOML file. This lint check looks for version declarations outside of the TOML file and suggests moving them (and in the IDE, provides a quickfix to performing the operation automatically)."
+        errorLine1="    testImplementation(&quot;org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.1&quot;)"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\build.gradle.kts"
+            line="102"
+            column="25"/>
+    </issue>
+
+    <issue
+        id="UseTomlInstead"
+        severity="Warning"
+        message="Use version catalog instead"
+        category="Productivity"
+        priority="4"
+        summary="Use TOML Version Catalog Instead"
+        explanation="If your project is using a `libs.versions.toml` file, you should place all Gradle dependencies in the TOML file. This lint check looks for version declarations outside of the TOML file and suggests moving them (and in the IDE, provides a quickfix to performing the operation automatically)."
+        errorLine1="    testImplementation(&quot;org.robolectric:robolectric:4.9&quot;)"
+        errorLine2="                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="C:\Users\LENOVO\AndroidStudioProjects\Hublss\app\build.gradle.kts"
+            line="103"
+            column="25"/>
+    </issue>
+
+</issues>
