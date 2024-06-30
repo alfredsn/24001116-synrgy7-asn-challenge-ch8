@@ -11,15 +11,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
+
       - name: Verify gradlew permission
         run: ls -l ./gradlew
+
+      - name: Check current directory
+        run: pwd
+
+      - name: List files in current directory
+        run: ls -la
+
       - name: Run Build App
         run: ./gradlew assembleAsiaDebug
+
       - name: Upload and Distribute App
         uses: mastersam07/firebase-app-distribution-action@v0.1
         with:
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
           appId: ${{ secrets.FIREBASE_APP_ID }}
-          file: '/app/build/outputs/apk/asia/debug/app-asia-debug.apk'
+          file: './app/build/outputs/apk/asia/debug/app-asia-debug.apk'
