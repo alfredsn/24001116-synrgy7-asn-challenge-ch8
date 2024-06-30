@@ -17,15 +17,20 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    flavorDimensions("version")
+    flavorDimensions += "region"
 
     productFlavors {
-        create("free") {
-            dimension = "version"
-            applicationIdSuffix = ".free"
+        create("asia") {
+            dimension = "region"
+            applicationIdSuffix = ".asia"
         }
         create("paid") {
-            dimension = "version"
+            dimension = "australia"
+            applicationIdSuffix = ".australia"
+        }
+        create("eu") {
+            dimension = "region"
+            applicationIdSuffix = ".eu"
         }
     }
 
@@ -34,7 +39,15 @@ android {
             isMinifyEnabled = false
             isDebuggable = true
         }
-        create("staging") {
+        create("hotfix") {
+            isMinifyEnabled = false
+            isDebuggable = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+        create("rollback") {
             isMinifyEnabled = false
             isDebuggable = true
             proguardFiles(
