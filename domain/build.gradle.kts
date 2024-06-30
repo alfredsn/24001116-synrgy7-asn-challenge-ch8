@@ -15,6 +15,16 @@ android {
     }
 
     buildTypes {
+        debug {
+            isMinifyEnabled = false
+        }
+        create("staging") {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -23,6 +33,16 @@ android {
             )
         }
     }
+
+    productFlavors {
+        create("free") {
+
+        }
+        create("paid") {
+
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
