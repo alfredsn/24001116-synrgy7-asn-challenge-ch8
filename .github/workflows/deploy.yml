@@ -41,7 +41,6 @@ jobs:
         with:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
-          groups: tester
           file: app/build/outputs/apk/asia/debug/app-asia-debug.apk
 
       - name: Upload Crashlytics Symbols
