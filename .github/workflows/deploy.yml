@@ -33,6 +33,9 @@ jobs:
       - name: Run Build App
         run: ./gradlew assembleAsiaDebug
 
+      - name: Verify APK file
+        run: ls -la ./app/build/outputs/apk/asia/debug/
+
       - name: Upload and Distribute App
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
