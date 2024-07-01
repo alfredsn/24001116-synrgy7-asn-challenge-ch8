@@ -40,3 +40,8 @@ jobs:
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
           groups: tester
           file: './app/build/outputs/apk/asia/debug/app-asia-debug.apk'
+
+      - name: Upload Crashlytics Symbols
+        run: ./gradlew app:uploadCrashlyticsSymbolFileAsiaDebug
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
