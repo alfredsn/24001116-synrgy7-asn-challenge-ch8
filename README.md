@@ -1,7 +1,7 @@
 <div align="center">
 
 # Connect - Final Project
-<br><br>
+</br>
 [![Release](https://img.shields.io/github/v/release/SYNRGY7-Kelompok-6/connect-bca-mobile?color=%23FDD835&style=for-the-badge)](https://github.com/SYNRGY7-Kelompok-6/connect-bca-mobile/releases)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 [![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://www.android.com/)
@@ -23,21 +23,21 @@
 </div>
 
 ---
-<br>
+</br>
 ## 🌟 Project Overview
 
 Connect is an innovative digital banking application designed to enhance accessibility for visually impaired users. Our mission is to make financial management through mobile and internet banking more inclusive and user-friendly.
-<br>
+</br>
 ## 🔍 Problem Statement
 
 Managing finances is a crucial part of daily life, and mobile banking applications are widely used for this purpose. However, many of these applications lack accessibility features, making them challenging for visually impaired users. This project addresses the need for an accessible digital banking solution tailored for the visually impaired community.
-<br>
+</br>
 ## 🎯 Objective
 
 - Improve the accessibility of digital banking applications
 - Ensure ease of use for visually impaired users
 - Incorporate user feedback to continuously enhance the application's features
-  <br>
+  </br>
 ## ✨ Features
 
 - 💰 **Account Balance:** Real-time balance checking with toggleable visibility
@@ -46,7 +46,7 @@ Managing finances is a crucial part of daily life, and mobile banking applicatio
 - 💸 **Fund Transfers:** Seamless money transfers between accounts
 - 👤 **Profile Management:** Easy-to-update user profile information
 - 🔍 **Accessibility Mode:** Enhanced features for visually impaired users
-  <br>
+  </br>
 ## 🛠 Tech Stack
 
 <p align="center">
@@ -57,7 +57,7 @@ Managing finances is a crucial part of daily life, and mobile banking applicatio
   <img src="https://img.shields.io/badge/Firebase-Services-yellow?style=for-the-badge&logo=firebase" alt="Firebase">
   <img src="https://img.shields.io/badge/Mockito-Testing-lightgrey?style=for-the-badge&logo=junit5" alt="Mockito">
 </p>
-<br>
+</br>
 ## 🚀 Getting Started
 
 These instructions will guide you through setting up and running the Android project on your local machine for development and testing purposes.
@@ -84,14 +84,14 @@ These instructions will guide you through setting up and running the Android pro
 2. **Navigate:** Use the accessible navigation bar to move through different sections.
 3. **Check Balance:** View your real-time account balance on the home screen.
 4. **Make Payments:** Use the QRIS feature for quick payments or transfer funds directly.
-   <br>
+   </br>
 ## 🔍 Accessibility
 
 The application has been designed with accessibility as a priority, featuring:
 - Screen reader support for visually impaired users
 - High-contrast mode and customizable font sizes
 - Voice commands for key functionalities
-  <br>
+  </br>
 ## 👥 Android Team
 
 <table align="center">
@@ -102,7 +102,7 @@ The application has been designed with accessibility as a priority, featuring:
     <td align="center"><a href="https://github.com/Hen2721"><img src="https://github.com/Hen2721.png" width="100px;" alt=""/><br /><sub><b>Hendardi Yoga Pratama</b></sub></a><br />Android Developer</td>
   </tr>
 </table>
-<br>
+</br>
 ## 🔗 Links
 
 <p align="center">
@@ -114,10 +114,10 @@ The application has been designed with accessibility as a priority, featuring:
   <a href="https://www.figma.com/board/xIcNW5v748G5Dl9J8TkUhI/UX-Research-Kelompok-6?node-id=193-1324&t=uLIfM6d0XnMY4tM2-4"><img src="https://img.shields.io/badge/Flowchart-Figma-F24E1E?style=for-the-badge&logo=figma" alt="Flowchart"></a>
   <a href="https://www.figma.com/board/xIcNW5v748G5Dl9J8TkUhI/UX-Research-Kelompok-6?node-id=140-488&t=o9R3a2uR8pMIp1yl-4"><img src="https://img.shields.io/badge/UX%20Research-Figma-F24E1E?style=for-the-badge&logo=figma" alt="UX Research"></a>
 </p>
-<br>
+</br>
 ## 📞 Contact
    For more information or support, please contact the contributors or the **SYNRGY Academy team**.
-   <br><br>
+   </br>
 ---
 
 <div align="center"> Made with ❤️ by SYNRGY7 Kelompok 6 </div>
