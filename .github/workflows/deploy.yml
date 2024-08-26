@@ -1,0 +1,45 @@
+name: "Deploy Hublss app"
+
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '17'
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
+      - name: Verify gradlew permission
+        run: ls -l ./gradlew
+
+      - name: Check current directory
+        run: pwd
+
+      - name: List files in current directory
+        run: ls -la
+
+      - name: Run Build App
+        run: ./gradlew assembleAsiaDebug
+
+      - name: Verify APK file
+        run: ls -la ./app/build/outputs/apk/asia/debug/
+
+      - name: Upload and Distribute App
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+          groups: tester
+          file: app/build/outputs/apk/asia/debug/app-asia-debug.apk

@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.hublss.asia" />
+                  <option name="mobileSdkAppId" value="1:1058738430222:android:bb060a56cef489ad23b75f" />
+                  <option name="projectId" value="hublss" />
+                  <option name="projectNumber" value="1058738430222" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
